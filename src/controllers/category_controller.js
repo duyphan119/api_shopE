@@ -1,6 +1,8 @@
+const categoryService = require("../services/category_services");
 const category_controller = {
-  getAll: (req, res) => {
-    res.send("helo");
+  getAll: async (req, res) => {
+    const { data, status } = await categoryService.getAll(req.query);
+    res.status(status).json(data);
   },
 };
 
